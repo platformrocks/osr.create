@@ -151,7 +151,18 @@ Options:
 - ✅ Added tsc-alias for runtime path alias resolution
 
 ### TypeScript Path Aliases Implementation:
+
 - **Source Code**: Uses clean path aliases (`@commands/`, `@utils/`)
 - **Runtime Resolution**: `tsc-alias` converts to relative paths in compiled output
 - **Build Process**: `tsc && tsc-alias` ensures proper compilation
 - **Development**: TypeScript IntelliSense works correctly with aliases
+
+### Conventional Commits & Quality Gates:
+
+- **Commitlint**: Automated commit message validation using @commitlint/config-conventional
+- **Commitizen**: Interactive commit helper with `npm run commit`
+- **Husky Hooks**:
+  - `pre-commit`: Runs lint-staged (ESLint + Prettier)
+  - `commit-msg`: Validates commit message format
+- **Supported Types**: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert
+- **Documentation**: Complete guide in COMMITS.md

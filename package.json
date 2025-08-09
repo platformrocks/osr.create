@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "platformrocks": "bin/create.js"
+    "platformrocks": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -17,23 +17,25 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.18.0"
   },
+  "sideEffects": false,
   "dependencies": {
     "commander": "^14.0.0",
     "execa": "^9.6.0",
     "giget": "^2.0.0",
     "kolorist": "^1.8.0",
-    "node-fetch": "^3.3.2",
     "ora": "^8.2.0",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.33.0",
-    "@types/eslint__js": "^8.42.3",
     "@types/node": "^24.2.1",
-    "@types/node-fetch": "^2.6.13",
     "@types/prompts": "^2.4.9",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -50,22 +52,23 @@
     "dev": "tsx src/index.ts",
     "test": "tsx src/index.ts --dry-run",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
-    "format": "prettier --write src/**/*.{ts,js,json,md}",
-    "format:check": "prettier --check src/**/*.{ts,js,json,md}",
-    "check": "npm run typecheck && npm run lint && npm run format:check",
-    "fix": "npm run lint:fix && npm run format",
-    "prepare": "husky",
-    "precommit": "lint-staged"
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,js,json,md}\"",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check",
+    "fix": "pnpm lint:fix && pnpm format",
+    "prepare": "husky install",
+    "release": "release-it",
+    "commit": "git-cz"
   },
   "lint-staged": {
     "src/**/*.{ts,js}": [
-      "eslint --fix",
-      "prettier --write"
+      "eslint --fix --max-warnings=0 --",
+      "prettier --write --"
     ],
-    "src/**/*.{json,md}": [
-      "prettier --write"
+    "**/*.{json,md}": [
+      "prettier --write --"
     ]
   },
   "keywords": [
@@ -80,10 +83,14 @@
   "homepage": "https://github.com/platformrocks/osr.create#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformrocks/osr.create.git",
-    "directory": "packages/create"
+    "url": "https://github.com/platformrocks/osr.create.git"
   },
   "bugs": {
     "url": "https://github.com/platformrocks/osr.create/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
