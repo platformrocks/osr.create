@@ -1,6 +1,6 @@
 {
   "name": "@platformrocks/create",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "⏏ Bootstrap CLI for OpenSource.Rocks projects",
   "license": "MIT",
   "type": "module",
