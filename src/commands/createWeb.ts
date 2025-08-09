@@ -8,11 +8,11 @@ import prompts from 'prompts';
 import ora from 'ora';
 import { cyan, green, yellow, bold, dim } from 'kolorist';
 import { downloadTemplate } from 'giget';
-import { detectPackageManager } from '../utils/detectPm.js';
-import { validateDirectory } from '../utils/ensureDir.js';
-import { installDependencies } from '../utils/installDeps.js';
-import { initializeGit } from '../utils/initGit.js';
-import { updatePackageName } from '../utils/patchPkgName.js';
+import { detectPackageManager } from '@utils/detectPm.js';
+import { validateDirectory } from '@utils/ensureDir.js';
+import { installDependencies } from '@utils/installDeps.js';
+import { initializeGit } from '@utils/initGit.js';
+import { updatePackageName } from '@utils/patchPkgName.js';
 
 export interface CreateWebOptions {
   template: string;
@@ -45,8 +45,8 @@ export async function createWeb(
   appName: string | undefined,
   options: CreateWebOptions
 ): Promise<void> {
-  console.log(bold(cyan('🚀 @platformrocks/create')));
-  console.log(dim('Bootstrap CLI for platform.rocks projects\n'));
+  console.log(bold(cyan('@platformrocks/create')));
+  console.log(dim('\u23CF Bootstrap CLI for OpenSource.Rocks projects\n'));
 
   // Pre-flight validation
   await validateEnvironment(options);
@@ -136,7 +136,7 @@ async function showDryRunPlan(
   template: TemplateConfig,
   options: CreateWebOptions
 ): Promise<void> {
-  console.log(bold(yellow('🔍 Dry Run Mode - No changes will be made')));
+  console.log(bold(yellow('Dry Run Mode - No changes will be made')));
   console.log();
 
   console.log('Steps that would be executed:');
@@ -159,7 +159,7 @@ async function showDryRunPlan(
 
   console.log(`  6. ${cyan('Show next steps')}`);
   console.log();
-  console.log(green('✅ Dry run complete. Use without --dry-run to execute.'));
+  console.log(green('Dry run complete. Use without --dry-run to execute.'));
 }
 
 /**
@@ -293,7 +293,7 @@ function formatWarning(message: string): string {
  * Formats info messages with appropriate colors
  */
 function formatInfo(message: string): string {
-  return cyan(`ℹ️  ${message}`);
+  return cyan(`${message}`);
 }
 
 /**
@@ -301,7 +301,7 @@ function formatInfo(message: string): string {
  */
 function printNextSteps(appName: string, pm: string): void {
   console.log();
-  console.log(green('✅ Project created successfully!'));
+  console.log(green('Project created successfully!'));
   console.log();
   console.log('Next steps:');
   console.log(cyan(`  cd ${appName}`));
@@ -310,5 +310,5 @@ function printNextSteps(appName: string, pm: string): void {
   console.log(cyan(`  ${runCommand} dev`));
 
   console.log();
-  console.log('Happy coding! 🚀');
+  console.log("Happy coding! Let's Rock!");
 }

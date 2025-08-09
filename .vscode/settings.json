@@ -1,5 +1,7 @@
 {
   "editor.formatOnSave": true,
+  "files.encoding": "utf8",
+  "prettier.configPath": ".prettierrc",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"

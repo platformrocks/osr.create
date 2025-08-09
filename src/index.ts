@@ -8,7 +8,7 @@
  */
 
 import { Command } from 'commander';
-import { createWeb, type CreateWebOptions } from './commands/createWeb.js';
+import { createWeb, type CreateWebOptions } from '@commands/createWeb.js';
 
 const program = new Command();
 
@@ -28,10 +28,20 @@ const EXIT_CODES = {
  * Main CLI function that handles project creation
  */
 export async function run(): Promise<void> {
+  // Get package version from package.json
+  const { readFileSync } = await import('fs');
+  const { join } = await import('path');
+  const { fileURLToPath } = await import('url');
+
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = join(__filename, '..');
+  const packageJsonPath = join(__dirname, '..', 'package.json');
+  const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+
   program
     .name('create')
-    .description('Bootstrap CLI for platform.rocks projects')
-    .version('0.1.0')
+    .description('\u23CF Bootstrap CLI for platform.rocks projects')
+    .version(packageJson.version)
     .argument('[app-name]', 'Name of the application to create')
     .option('-t, --template <template>', 'Template to use for scaffolding', 'web')
     .option('--pm <manager>', 'Package manager to use (auto-detected if not specified)')
@@ -138,7 +148,7 @@ async function formatError(message: string, code?: number): Promise<string> {
  */
 async function formatInfo(message: string): Promise<string> {
   const { cyan } = await import('kolorist');
-  return cyan(`ℹ️  ${message}`);
+  return cyan(` ${message}`);
 }
 
 // Main execution
