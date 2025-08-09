@@ -1,0 +1,35 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+*.tgz
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE
+.idea/
+
+# OS
+Thumbs.db
+
+# Temporary files
+.tmp/
+*.tmp
+
+.guided/tmp/
+
+# Coverage reports
+coverage/
+
+# Build artifacts
+build/
+
+# Lock files (we want to include package-lock.json for reproducible builds)
+# yarn.lock
+# pnpm-lock.yaml
+
+# Environment
+.env
+.env.local
+.env.*.local
