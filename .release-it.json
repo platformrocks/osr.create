@@ -1,0 +1,32 @@
+{
+  "variables": {
+    "packageDir": "."
+  },
+  "git": {
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true,
+    "commitMessage": "chore(release): v${version}"
+  },
+  "github": {
+    "release": true,
+    "autoGenerate": false,
+    "tokenRef": "GITHUB_TOKEN"
+  },
+  "npm": {
+    "publish": true,
+    "private": false,
+    "publishArgs": ["--access", "public", "--provenance"],
+    "ignoreVersion": false,
+    "tag": "latest"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md"
+    }
+  },
+  "hooks": {
+    "before:init": "node -e \"console.log('release-it start')\"",
+    "before:release": "pnpm -C ${packageDir} build || npm --prefix ${packageDir} run build"
+  }
+}

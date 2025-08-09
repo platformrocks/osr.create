@@ -32,6 +32,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.33.0",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@types/node": "^24.2.1",
     "@types/prompts": "^2.4.9",
     "commitizen": "^4.3.1",
@@ -42,6 +43,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
     "tsc-alias": "^1.8.16",
     "tsx": "^4.20.3",
     "typescript": "^5.9.2",
@@ -60,6 +62,7 @@
     "fix": "pnpm lint:fix && pnpm format",
     "prepare": "husky install",
     "release": "release-it",
+    "release:dry": "release-it --dry-run",
     "commit": "git-cz"
   },
   "lint-staged": {
