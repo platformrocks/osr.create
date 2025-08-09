@@ -1,6 +1,6 @@
-# @platformrocks/create
+# &#x23CF; @platformrocks/create
 
-Bootstrap CLI for platform.rocks projects. A modern, fast, and user-friendly project scaffolding tool.
+Bootstrap CLI for OpenSource.Rocks projects. A modern, fast, and ai-friendly project scaffolding tool.
 
 ## Installation
 
@@ -50,23 +50,24 @@ npx @platformrocks/create my-app --verbose
 
 ## Options
 
-| Option | Alias | Description | Default |
-|--------|-------|-------------|---------|
-| `--template <name>` | `-t` | Template to use for scaffolding | `web` |
-| `--pm <manager>` | | Package manager to use (npm, yarn, pnpm, bun) | auto-detect |
-| `--no-git` | | Skip git repository initialization | `false` |
-| `--no-install` | | Skip dependency installation | `false` |
-| `--force` | `-f` | Overwrite existing directory | `false` |
-| `--dry-run` | | Show what would be done without executing | `false` |
-| `--verbose` | `-v` | Enable verbose logging | `false` |
-| `--help` | `-h` | Show help information | |
-| `--version` | `-V` | Show version information | |
+| Option              | Alias | Description                                   | Default     |
+| ------------------- | ----- | --------------------------------------------- | ----------- |
+| `--template <name>` | `-t`  | Template to use for scaffolding               | `web`       |
+| `--pm <manager>`    |       | Package manager to use (npm, yarn, pnpm, bun) | auto-detect |
+| `--no-git`          |       | Skip git repository initialization            | `false`     |
+| `--no-install`      |       | Skip dependency installation                  | `false`     |
+| `--force`           | `-f`  | Overwrite existing directory                  | `false`     |
+| `--dry-run`         |       | Show what would be done without executing     | `false`     |
+| `--verbose`         | `-v`  | Enable verbose logging                        | `false`     |
+| `--help`            | `-h`  | Show help information                         |             |
+| `--version`         | `-V`  | Show version information                      |             |
 
 ## Templates
 
 Currently available templates:
 
 ### Web Template (`web`)
+
 - **Repository**: `github:platformrocks/osr.boilerplate-web`
 - **Description**: Modern web application boilerplate
 - **Includes**: React, TypeScript, Vite, Tailwind CSS, and more
@@ -88,7 +89,7 @@ npm run dev
 
 ```bash
 npx @platformrocks/create my-app --pm pnpm
-cd my-app  
+cd my-app
 pnpm dev
 ```
 
@@ -114,9 +115,11 @@ npx @platformrocks/create my-app
 ### Common Issues
 
 **Node.js Version Error**
+
 ```
 Error: Node.js 18+ is required. Current version: v16.x.x
 ```
+
 - Solution: Update to Node.js 18 or later from [nodejs.org](https://nodejs.org)
 
 **Network Connection Error**
@@ -124,6 +127,7 @@ Error: Node.js 18+ is required. Current version: v16.x.x
 ```
 Error: Cannot reach GitHub. Check your internet connection
 ```
+
 - Solution: Check your internet connection and try again
 - Alternative: Check if GitHub is accessible from your network
 
@@ -132,6 +136,7 @@ Error: Cannot reach GitHub. Check your internet connection
 ```
 Error: Directory "my-app" is not empty. Use --force to overwrite.
 ```
+
 - Solution: Use `--force` flag or choose a different directory name
 - Example: `npx @platformrocks/create my-app --force`
 
@@ -140,6 +145,7 @@ Error: Directory "my-app" is not empty. Use --force to overwrite.
 ```
 Error: Git not found in PATH. Install Git or use --no-git flag.
 ```
+
 - Solution: Install Git from [git-scm.com](https://git-scm.com) or use `--no-git`
 
 **Permission Error**
@@ -147,6 +153,7 @@ Error: Git not found in PATH. Install Git or use --no-git flag.
 ```
 Error: Permission denied. Try running with appropriate permissions.
 ```
+
 - Solution: Run with appropriate permissions or choose a different directory
 - On Windows: Run as Administrator or choose a directory in your user folder
 - On macOS/Linux: Use `sudo` or choose a directory you have write access to
@@ -156,6 +163,7 @@ Error: Permission denied. Try running with appropriate permissions.
 ```
 Error: Failed to install dependencies with npm
 ```
+
 - Solution: Try with a different package manager or use `--no-install`
 - Example: `npx @platformrocks/create my-app --pm yarn`
 - Alternative: `npx @platformrocks/create my-app --no-install` then install manually
@@ -177,6 +185,7 @@ npx @platformrocks/create my-app --verbose
 ## Development
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 - Git
@@ -234,10 +243,12 @@ create my-test-app --dry-run
 ## Publishing
 
 ### Prerequisites
+
 - npm account with access to `@platformrocks` organization
 - Proper authentication (`npm login`)
 
 ### Build and Publish
+
 ```bash
 # Ensure clean build
 npm run build
@@ -250,11 +261,12 @@ npx @platformrocks/create --help
 ```
 
 ### Version Management
+
 ```bash
 # Update patch version
 npm version patch
 
-# Update minor version  
+# Update minor version
 npm version minor
 
 # Update major version
@@ -264,6 +276,7 @@ npm version major
 ## Architecture
 
 The CLI is built with:
+
 - **TypeScript** for type safety and better developer experience
 - **Commander.js** for CLI argument parsing and command structure
 - **ora** for beautiful loading spinners and progress indicators
@@ -273,6 +286,7 @@ The CLI is built with:
 - **giget** for downloading templates from GitHub repositories
 
 ### Project Structure
+
 ```
 packages/create/
 ├── src/

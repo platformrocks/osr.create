@@ -1,0 +1,28 @@
+# Build outputs
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Configuration files
+*.config.js
+*.config.mjs
+*.config.ts
+
+# Husky hooks
+.husky/
+
+# Logs
+*.log
+
+# Coverage reports
+coverage/
+
+# IDE
+.vscode/
+.idea/
